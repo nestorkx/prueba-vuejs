@@ -17,7 +17,7 @@
           <div class="section-nav p-3">
             <ul class="custom-list list-unstyled">
 
-              <li class="mb-2" v-for="menu in menus">
+              <li class="mb-2 animated fadeIn fast" v-for="menu in menus">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" v-model='menu.hide' v-bind:id="menu.id">
                   <label class="custom-control-label" v-bind:for="menu.id"><i v-bind:class="menu.class"></i> {{ menu.name }}</label>
@@ -40,7 +40,7 @@
               <table class="custom-table table">
                 <thead>
                 <tr>
-                  <th v-show='!menu.hide' v-for="menu in menus">
+                  <th v-show='!menu.hide' v-for="menu in menus" class="animated fadeIn fast">
                     <span class="custom-font font-weight-bold" >{{ menu.name | uppercase }}</span>
                   </th>
                   <th></th>
@@ -48,7 +48,7 @@
                 </thead>
                 <tbody>
 
-                <tr v-for="(user) in users">
+                <tr v-for="(user) in users" class="animated fadeIn fast">
 
 
                   <td v-show='!menu.hide' v-for="(menu) in menus">
@@ -77,7 +77,7 @@
                          {{ user.cell }}
                     </span>
                     <span v-if="menu.name === 'Option'">
-                      <button class="btn btn-outline-primary">View Profile</button>
+                      <router-link :to="{ name: 'Profile', params: { id: user }}" class="btn btn-outline-primary">View Profile</router-link>
                     </span>
                   </td>
                 </tr>
